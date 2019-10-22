@@ -1,24 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import { NumericInput, TextArea, InputGroup } from "formik-blueprint";
+import { Form, Field, Formik } from "formik";
+import "@blueprintjs/core/lib/css/blueprint.css";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Formik initialValues={{ input: 0 }}>
+        {props => (
+          <Form>
+            <Field component={InputGroup} type="string" name="input" />
+            <Field component={NumericInput} type="string" name="input" />
+            <Field component={TextArea} type="string" name="input" />
+          </Form>
+        )}
+      </Formik>
     </div>
   );
 }
